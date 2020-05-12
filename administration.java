@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class administration {
 	                
-					final public static Scanner Scanner = new Scanner(System.in);
+				    final public static Scanner Scanner = new Scanner(System.in);
 				    final public static int ARRAY_LENGTH = arrayLength();
 
 				    public static void main(String[] args) {
