@@ -86,11 +86,11 @@ public class administration {
 				            array[k] = Scanner.nextInt();
 				            if (array[k] > 0 && array[k] <= 100) k++;
 				        }
-				    }
+				   }
 
 				    public static void printArray(int[] array) {
 				        for (int k = 0; k < ARRAY_LENGTH; k++) System.out.print(array[k] + " ");
-				    }
+				   }
 
 				    public static void printMenuOptions() {
 				        System.out.print("\n\n Menu :\n" +
@@ -107,7 +107,7 @@ public class administration {
 				                "11. Take a look of your input numbers \n" +
 				                "12. Exit \n" +
 				                " Choose a option:  ");
-				    }
+				   }
 
 				   
 				    public static int UserMenuOption() {
@@ -154,7 +154,7 @@ public class administration {
 				                        int temp = array[n];
 				                        array[n] = array[n + 1];
 				                        array[n + 1] = temp;
-				                    }
+				            }
 				        }
 				    }
 
