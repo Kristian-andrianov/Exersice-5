@@ -15,41 +15,51 @@ public class administration {
 
 				        do {
 				            printMenuOptions();
-				            int userMenu = takeInputUserMenuOption();
+				            int userMenu = UserMenuOption();
 				            switch (userMenu) {
 				                case 1:
 				                	ArrayinAscending(intArray);
 				                    printArray(intArray);
 				                    break;
+				                    
 				                case 2:
 				                    ArrayinDescending(intArray);
 				                    printArray(intArray); 
-				                    break;           //Bubble Sort
+				                    break;  
+				                    
 				                case 3:
 				                    PositionofNumber(intArray);
 				                    break;
+				                    
 				                case 4:
 				                    RandomArray(intArray);
 				                    break;
+				                    
 				                case 5:
 				                    System.out.print("The sum of the numbers is :   " + SumaryofNumbersinArray(intArray));
 				                    break;
+				                    
 				                case 6:
 				                    System.out.print("The biggest number is : " + BiggestNumOfArray(intArray));
 				                    break;
+				                    
 				                case 7:
 				                    System.out.print("The samllest number is : " + SmallestNumOfArray(intArray));
 				                    break;
+				                    
 				                case 8:
 				                    System.out.print("the arithmetic mean of the numbers is  : " + averageNumberInArray(intArray));
 				                    break;
+				                    
 				                case 9:
 				                    if (SymmetricArray(intArray)) System.out.print("Numbers are even");
 				                    else System.out.print("Numbers are odd");
-				                    break;
+				                    break
+				                    ;
 				                case 10:
-				                    Reverse(intArray);
+				                	reverse(intArray);
 				                    break;
+				                    
 				                case 11:
 				                    System.out.println("Input numbers:");
 				                    printArray(intArray);
@@ -70,44 +80,44 @@ public class administration {
 
 				   
 				    public static void fillArray(int[] array) {
-				        int i = 0;
-				        while (i < ARRAY_LENGTH) {
-				            System.out.print(i + 1 + ": ");
-				            array[i] = Scanner.nextInt();
-				            if (array[i] > 0 && array[i] <= 100) i++;
+				        int k = 0;
+				        while (k < ARRAY_LENGTH) {
+				            System.out.print(k + 1 + ": ");
+				            array[k] = Scanner.nextInt();
+				            if (array[k] > 0 && array[k] <= 100) k++;
 				        }
 				    }
 
 				    public static void printArray(int[] array) {
-				        for (int i = 0; i < ARRAY_LENGTH; i++) System.out.print(array[i] + " ");
+				        for (int k = 0; k < ARRAY_LENGTH; k++) System.out.print(array[k] + " ");
 				    }
 
 				    public static void printMenuOptions() {
 				        System.out.print("\n\n Menu :\n" +
-				                "1. Sort numbers from biggest to lowest \n" +
-				                "2. Sort the numbers from lowest to biggest \n" +
+				                "1. Sort numbers from lowest to biggest \n" +
+				                "2. Sort the numbers from biggest to lowest \n" +
 				                "3. Looking for the exact position of one number \n" +
 				                "4. Randomizing the numbers \n" +
 				                "5. Summing all the numbers \n" +
 				                "6. Loking for the biggest number \n" +
 				                "7. Looking for the smallest number \n" +
 				                "8. Finding the media of the numbers \n" +
-				                "9. Proverka na simiti`nosta na numbers \n" +
-				                "10. Changing numbers to array \n" +
+				                "9. Check the symmetry of the numbers \n" +
+				                "10.Reverse the numbers \n" +
 				                "11. Take a look of your input numbers \n" +
 				                "12. Exit \n" +
 				                " Choose a option:  ");
 				    }
 
 				   
-				    public static int takeInputUserMenuOption() {
+				    public static int UserMenuOption() {
 				        int userMenuOption = Scanner.nextInt();
 				        if (userMenuOption > 0 && userMenuOption < 13) {
 				            return userMenuOption;
 				        }
 				        System.out.print("\nError , try again :");
 				        
-				        return takeInputUserMenuOption();
+				        return UserMenuOption();
 				    }
 				    
 
@@ -115,46 +125,48 @@ public class administration {
 				    public static boolean ContinueYN() {
 				        System.out.print("\n Would you want to return to the main menu(Y/N) ");
 				        String Answer = Scanner.next();
-				        if (Answer.equals("n") || Answer.equals("N")) return false;
-				        if (Answer.equals("y") || Answer.equals("Y")) return true;
+				        if (Answer.equals("n") || 
+				        		Answer.equals("N")) return false;
+				        if (Answer.equals("y") ||
+				        		Answer.equals("Y")) return true;
 				        System.out.print("\nInvalid input, try again: ");
 				        return ContinueYN();
 				    }
+				    public static void ArrayinDescending(int[] array) {
+				        for (int k = 0; k < ARRAY_LENGTH - 1; k++) {
+				            for (int n = 0; n < ARRAY_LENGTH - k - 1; n++) {
 
+				                if (array[n] < array[n + 1]) {
+				                    int temp = array[n];
+				                    array[n] = array[n + 1];
+				                    array[n + 1] = temp;
+				                }
+				            }
+				        }
+				    }
 				    
 				    public static void ArrayinAscending(int[] array) {
 				        {
 
-				            for (int i = 0; i < ARRAY_LENGTH - 1; i++)
-				                for (int j = 0; j < ARRAY_LENGTH - i - 1; j++)
-				                    if (array[j] > array[j + 1]) {
-				                        int temp = array[j];
-				                        array[j] = array[j + 1];
-				                        array[j + 1] = temp;
+				            for (int k = 0; k < ARRAY_LENGTH - 1; k++)
+				                for (int n = 0; n < ARRAY_LENGTH - k - 1; n++)
+				                    if (array[n] > array[n + 1]) {
+				                        int temp = array[n];
+				                        array[n] = array[n + 1];
+				                        array[n + 1] = temp;
 				                    }
 				        }
 				    }
 
 				  
-				    public static void ArrayinDescending(int[] array) {
-				        for (int i = 0; i < ARRAY_LENGTH - 1; i++) {
-				            for (int j = 0; j < ARRAY_LENGTH - i - 1; j++) {
-
-				                if (array[j] < array[j + 1]) {
-				                    int temp = array[j];
-				                    array[j] = array[j + 1];
-				                    array[j + 1] = temp;
-				                }
-				            }
-				        }
-				    }
+				   
 				  
 				    public static void PositionofNumber(int[] array) {
 				        System.out.print("Put in a number which position you would like to find :");
 				        int Want = Scanner.nextInt();
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-				            if (array[i] == Want) {
-				                System.out.printf("\nNumber %d , is found on a %d", array[i], i + 1);
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				            if (array[k] == Want) {
+				                System.out.printf("\nNumber %d , is found on a %d", array[k], k + 1);
 				            }
 				        }
 				    }   
@@ -162,58 +174,58 @@ public class administration {
 
 				    private static void RandomArray(int[] array) {
 				        int index, temp;
-				        Random rand = new Random();
+				        Random random = new Random();
 				        System.out.print("\nRandomized numbers: ");
-				        for (int i = ARRAY_LENGTH - 1; i >= 0; i--) {
-				            index = rand.nextInt(i + 1);
+				        for (int k = ARRAY_LENGTH - 1; k >= 0; k--) {
+				            index = random.nextInt(k + 1);
 				            temp = array[index];
-				            array[index] = array[i];
-				            array[i] = temp;
-				            System.out.print(array[i] + " ");
+				            array[index] = array[k];
+				            array[k] = temp;
+				            System.out.print(array[k] + " ");
 				        }
 				    }
 				    
 
 				    private static int SumaryofNumbersinArray(int[] array) {
 				        int SUM = 0;
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-				            SUM += array[i];
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				            SUM += array[k];
 				        }
 				        return SUM;
 				    }
 				    private static int BiggestNumOfArray(int[] array) {
 				        int MAX = array[0];
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-				            if (array[i] > MAX) MAX = array[i];
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				            if (array[k] > MAX) MAX = array[k];
 				        }
 				        return MAX;
 				    }
 				    private static int SmallestNumOfArray(int[] array) {
 				        int MIN = array[0];
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-				            if (array[i] < MIN) MIN = array[i];
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				            if (array[k] < MIN) MIN = array[k];
 				        }
 				        return MIN;
 				    }
 
 				    private static int averageNumberInArray(int[] array) {
-				        int AVERAGE = 0;
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-				            AVERAGE += array[i];
+				        int Aver = 0;
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				            Aver += array[k];
 				        }
-				        return AVERAGE / ARRAY_LENGTH;
+				        return Aver / ARRAY_LENGTH;
 				    }
-				    private static void Reverse(int[] array) {
-				        for (int i = ARRAY_LENGTH - 1; i >= 0; i--) {
-				            System.out.print(array[i] + " ");
-				        }
-				    }
-				    
+				    public static void reverse(int[] data) {
+				    	for(int i=0; i < array.length/2; i++)
+				    	{ int temp = array[i]; array[i] = array[array.length -i -1];
+				    	array[array.length -i -1] = temp; }
+				    	}
+	
 				    
 				    private static boolean SymmetricArray(int[] array) {
-				        for (int i = 0; i < ARRAY_LENGTH; i++) {
-
-				            if (!(array[i] == array[ARRAY_LENGTH - 1 - i] ) && i <= array[i] / 2) return false;
+				        for (int k = 0; k < ARRAY_LENGTH; k++) {
+				        	if (!(array[k] == array[ARRAY_LENGTH - 1 - k] ) 
+				            		&& k <= array[k] / 2) return false;
 				        }
 				        
 				    return true;
