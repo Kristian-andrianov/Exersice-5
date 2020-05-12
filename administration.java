@@ -93,7 +93,7 @@ public class administration {
 				                "73. Looking for the smallest number \n" +
 				                "8. Finding the media of the numbers \n" +
 				                "9. Proverka na simiti`nosta na numbers \n" +
-				                "10. Chainging numbers to array \n" +
+				                "10. Changing numbers to array \n" +
 				                "11. Take a look of your input numbers \n" +
 				                "12. Exit \n" +
 				                " Choose a option:  ");
