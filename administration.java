@@ -90,7 +90,7 @@ public class administration {
 				                "4. Randomizing the numbers \n" +
 				                "5. Summing all the numbers \n" +
 				                "6. Loking for the biggest number \n" +
-				                "73. Looking for the smallest number \n" +
+				                "7. Looking for the smallest number \n" +
 				                "8. Finding the media of the numbers \n" +
 				                "9. Proverka na simiti`nosta na numbers \n" +
 				                "10. Changing numbers to array \n" +
